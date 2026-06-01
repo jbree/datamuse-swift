@@ -17,7 +17,8 @@ public struct DataMuseClient {
     /// Fetch words based on the given endpoint
     /// - Parameter endpoint: The endpoint specifying the API request
     /// - Returns: Array of `Word` objects
-    public func fetchWords(endpoint: Endpoint) async throws -> [Word] {
+    @available(macOS 12.0, *)
+    public func fetchWords(endpoint: Endpoint, syllables: Int? = nil) async throws -> [Word] {
         guard let url = endpoint.url(baseURL: baseURL) else {
             throw DataMuseError.invalidURL
         }
